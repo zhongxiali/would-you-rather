@@ -1,0 +1,24 @@
+{
+  "name": "would-you",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "rc-progress": "^2.2.5",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-icon": "^1.0.0",
+    "react-redux": "^5.0.7",
+    "react-redux-loading": "^1.0.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-tabs": "^1.2.0",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
