@@ -12,7 +12,6 @@ class LogStatus extends Component {
   }
   render(){
     const { authedUser } = this.props
-    console.log({authedUser});
     return (
       <div className='right'>
         {authedUser

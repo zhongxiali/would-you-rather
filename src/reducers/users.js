@@ -21,7 +21,6 @@ export default function users (state = {}, action) {
       }
      case ADD_USER_QUESTION:
       const {question, authedUserid} = action
-      console.log(action);
       return{
         ...state,
         [authedUserid]:{

@@ -5,7 +5,6 @@ import UserStats from './UserStats'
 class LeaderBoard extends Component {
   render(){
     const {users}=this.props
-    console.log(users);
     return(
       <div className='container1'>
         <ul className='dashboard-list'>

@@ -51,7 +51,6 @@ class QuestionList extends Component {
 }
 
 function mapStateToProps({ questions,authedUser }) {
-  // console.log(questions);
   return {
     answered: Object.keys(questions)
       .filter((a)=>

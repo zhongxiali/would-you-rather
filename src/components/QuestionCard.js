@@ -35,7 +35,6 @@ class QuestionCard extends Component {
   render(){
     const { author,question,id,authedUser,hasAnswered,countOne,countTwo } = this.props
     const {choice, toHome, }=this.state
-    console.log(question)
     if (author===null){
       return (<p>this tweet doesnt exist</p>)
     }
