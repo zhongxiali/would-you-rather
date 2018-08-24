@@ -13,7 +13,7 @@ import Login from './Login'
 import Error from './Error'
 
 class App extends Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
   render() {
@@ -21,25 +21,23 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
-          <h2 className='center'>Would you rather</h2>
-          <div className='menubar'>
+          <h2 className="center">Would you rather</h2>
+          <div className="menubar">
             <NavBar />
             <LogStatus />
           </div>
-          {this.props.loading === true
-            ? null
-            : <div>
-                <Route path='/' exact component={QuestionList} />
-                <Route path='/login'  component={Login} />
-                <Route path='/error' component={Error} />
-                <Route path='/question/:id'  component={QuestionCard} />
-                <Route path='/new'  component={NewQuestion} />
-                <Route path='/leaderboard'  component={LeaderBoard} />
-              </div>
-          }
+          {this.props.loading === true ? null : (
+            <div>
+              <Route path="/" exact component={QuestionList} />
+              <Route path="/login" component={Login} />
+              <Route path="/error" component={Error} />
+              <Route path="/question/:id" component={QuestionCard} />
+              <Route path="/new" component={NewQuestion} />
+              <Route path="/leaderboard" component={LeaderBoard} />
+            </div>
+          )}
         </Fragment>
       </Router>
-
     )
   }
 }

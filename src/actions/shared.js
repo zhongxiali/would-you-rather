@@ -6,19 +6,17 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 
 const AUTHED_ID = 'tylermcginnis'
 
-export function handleInitialData () {
+export function handleInitialData() {
   return (dispatch) => {
     dispatch(showLoading())
 
-    return _getUsers()
-      .then((users)=>{
-        dispatch(receiveUsers(users))
-        _getQuestions()
-         .then((questions)=>{
-           dispatch(receiveQuestions(questions))
-           dispatch(setAuthedUser(AUTHED_ID))
-           dispatch(hideLoading())
-         })
+    return _getUsers().then((users) => {
+      dispatch(receiveUsers(users))
+      _getQuestions().then((questions) => {
+        dispatch(receiveQuestions(questions))
+        dispatch(setAuthedUser(AUTHED_ID))
+        dispatch(hideLoading())
       })
+    })
   }
 }

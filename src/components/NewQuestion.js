@@ -1,66 +1,64 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleAddQuestion} from '../actions/questions'
+import { handleAddQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 
 class NewQuestion extends Component {
-  componentWillMount(){
-    if(this.props.authedUser==''){
+  componentWillMount() {
+    if (this.props.authedUser == '') {
       this.props.history.push('/login')
     }
   }
   state = {
     text1: '',
     text2: '',
-    toHome:false
+    toHome: false
   }
-  handleChange1 = (e)=>{
+  handleChange1 = (e) => {
     const text1 = e.target.value
-    this.setState(()=>({
+    this.setState(() => ({
       text1
     }))
   }
-  handleChange2 = (e)=>{
+  handleChange2 = (e) => {
     const text2 = e.target.value
-    this.setState(()=>({
+    this.setState(() => ({
       text2
     }))
   }
-  handleSubmit =(e)=>{
+  handleSubmit = (e) => {
     e.preventDefault()
-    const {text1, text2} = this.state
-    const { dispatch, id }= this.props
+    const { text1, text2 } = this.state
+    const { dispatch, id } = this.props
 
     dispatch(handleAddQuestion(text1, text2))
 
-    this.setState(()=>({
+    this.setState(() => ({
       text1: '',
       text2: '',
-      toHome:id?false:true,
+      toHome: id ? false : true
     }))
   }
 
-  render(){
-    const {text1, text2, toHome}=this.state
+  render() {
+    const { text1, text2, toHome } = this.state
 
-    if(toHome === true){
-      return <Redirect to='/' />
+    if (toHome === true) {
+      return <Redirect to="/" />
     }
-    return(
-      <div className='cardcontainer' >
-        <div className='cardtitle'>
-          Create New Question
-        </div>
-        <div className='cardcontent2'>
+    return (
+      <div className="cardcontainer">
+        <div className="cardtitle">Create New Question</div>
+        <div className="cardcontent2">
           <p>Complete the question:</p>
           <h3>Would you rather...</h3>
-          <form className='' onSubmit={this.handleSubmit}>
+          <form className="" onSubmit={this.handleSubmit}>
             <textarea
               placeholder="Enter option one text here"
               value={text1}
               onChange={this.handleChange1}
-              className='textarea'
+              className="textarea"
               maxLength={280}
               rows="1"
             />
@@ -69,14 +67,15 @@ class NewQuestion extends Component {
               placeholder="Enter option two text here"
               value={text2}
               onChange={this.handleChange2}
-              className='textarea'
+              className="textarea"
               maxLength={280}
               rows="1"
             />
             <button
-              className='btnnew'
-              type='submit'
-              disabled={text1 === ''||text2 === ''}>
+              className="btnnew"
+              type="submit"
+              disabled={text1 === '' || text2 === ''}
+            >
               Submit
             </button>
           </form>
@@ -86,7 +85,7 @@ class NewQuestion extends Component {
   }
 }
 
-function mapStateToProps({ authedUser}) {
+function mapStateToProps({ authedUser }) {
   return {
     authedUser
   }

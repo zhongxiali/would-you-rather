@@ -6,39 +6,39 @@ export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const SAVE_ANSWER = 'SAVE_ANSWER'
 export const ADD_QUESTION = 'ADD_QUESTION'
 
-export function receiveQuestions (questions) {
+export function receiveQuestions(questions) {
   return {
     type: RECEIVE_QUESTIONS,
-    questions,
+    questions
   }
 }
 
-export function handleAddQuestion(optionOne,optionTwo){
-  return(dispatch, getState) =>{
+export function handleAddQuestion(optionOne, optionTwo) {
+  return (dispatch, getState) => {
     const { authedUser } = getState()
     dispatch(showLoading())
 
     return _saveQuestion({
-      author:authedUser,
-      optionOneText:optionOne,
-      optionTwoText:optionTwo
+      author: authedUser,
+      optionOneText: optionOne,
+      optionTwoText: optionTwo
     })
-      .then((question)=>{dispatch(addQuestion(question))
-        dispatch(addUserQuestion({question,authedUser}))
+      .then((question) => {
+        dispatch(addQuestion(question))
+        dispatch(addUserQuestion({ question, authedUser }))
       })
-      .then(()=>dispatch(hideLoading()))
+      .then(() => dispatch(hideLoading()))
   }
-
 }
 
-function addQuestion (question) {
+function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question
   }
 }
 
-function saveAnswer ({authedUser,qid,answer}) {
+function saveAnswer({ authedUser, qid, answer }) {
   return {
     type: SAVE_ANSWER,
     authedUser,
@@ -47,15 +47,13 @@ function saveAnswer ({authedUser,qid,answer}) {
   }
 }
 
-
-export function handleSaveAnswer(authedUser,qid,answer) {
-  return(dispatch)=>{
+export function handleSaveAnswer(authedUser, qid, answer) {
+  return (dispatch) => {
     dispatch(showLoading())
 
-    _saveQuestionAnswer({authedUser,qid,answer})
-      .then(()=>dispatch(saveAnswer({authedUser,qid,answer})))
-      .then(()=>dispatch(addUserAnswer({authedUser,qid,answer})))
-      .then(()=>dispatch(hideLoading()))
+    _saveQuestionAnswer({ authedUser, qid, answer })
+      .then(() => dispatch(saveAnswer({ authedUser, qid, answer })))
+      .then(() => dispatch(addUserAnswer({ authedUser, qid, answer })))
+      .then(() => dispatch(hideLoading()))
   }
-
 }
