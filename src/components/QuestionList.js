@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 class QuestionList extends Component {
   componentWillMount() {
-    if (this.props.authedUser == '') {
+    if (this.props.authedUser === '') {
       this.props.history.push('/login')
     }
   }
@@ -18,7 +18,7 @@ class QuestionList extends Component {
     }))
   }
   render() {
-    const { answered, unanswered, authedUser } = this.props
+    const { answered, unanswered } = this.props
     return (
       <div className="container1">
         <button

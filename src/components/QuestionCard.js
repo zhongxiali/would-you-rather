@@ -36,13 +36,12 @@ class QuestionCard extends Component {
     const {
       author,
       question,
-      id,
       authedUser,
       hasAnswered,
       countOne,
       countTwo
     } = this.props
-    const { choice, toHome } = this.state
+    const { choice } = this.state
     if (author === null) {
       return <p>this tweet doesnt exist</p>
     }
@@ -65,10 +64,7 @@ class QuestionCard extends Component {
                 >
                   <h4>{question.optionOne.text}</h4>
                   {question.optionOne.votes.includes(authedUser) ? (
-                    <img
-                      src="https://cdn.pixabay.com/photo/2016/03/31/14/37/check-mark-1292787_960_720.png"
-                      alt=""
-                    />
+                    <img src="check-mark-1292787_640.png" alt="" />
                   ) : (
                     ''
                   )}
