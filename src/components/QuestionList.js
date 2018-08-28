@@ -4,11 +4,6 @@ import QuestionPreview from './QuestionPreview'
 import { withRouter } from 'react-router-dom'
 
 class QuestionList extends Component {
-  componentWillMount() {
-    if (this.props.authedUser === '') {
-      this.props.history.push('/login')
-    }
-  }
   state = {
     answeredlist: false
   }

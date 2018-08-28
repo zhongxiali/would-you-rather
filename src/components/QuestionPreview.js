@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 class QuestionPreview extends Component {
   toQuestion = (e, id) => {
     e.preventDefault()
-    this.props.history.push(`/question/${id}`)
+    this.props.history.push(`/questions/${id}`)
   }
   render() {
     const { author, question, id } = this.props

@@ -26,13 +26,17 @@ class App extends Component {
             <NavBar />
             <LogStatus />
           </div>
-          {this.props.loading === true ? null : (
+          {this.props.loading === true ? null : this.props.authedUser === '' ? (
+            <div>
+              <Route component={Login} />
+            </div>
+          ) : (
             <div>
               <Route path="/" exact component={QuestionList} />
               <Route path="/login" component={Login} />
               <Route path="/error" component={Error} />
-              <Route path="/question/:id" component={QuestionCard} />
-              <Route path="/new" component={NewQuestion} />
+              <Route path="/questios/:id" component={QuestionCard} />
+              <Route path="/add" component={NewQuestion} />
               <Route path="/leaderboard" component={LeaderBoard} />
             </div>
           )}
@@ -44,7 +48,8 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    loading: authedUser === null
+    loading: authedUser === null,
+    authedUser
   }
 }
 

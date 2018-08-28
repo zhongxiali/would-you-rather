@@ -3,6 +3,12 @@ import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component {
+  componentWillMount() {
+    if (this.props.authedUser !== '') {
+      this.props.history.push('/')
+    }
+  }
+
   state = {
     select: ''
   }
@@ -18,7 +24,7 @@ class Login extends Component {
     e.preventDefault()
     const { select } = this.state
     this.props.dispatch(setAuthedUser(select))
-    this.props.history.push('/')
+    // this.props.history.push('/')
   }
 
   render() {
@@ -59,9 +65,10 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
-    users: Object.keys(users)
+    users: Object.keys(users),
+    authedUser
   }
 }
 

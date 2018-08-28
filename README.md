@@ -35,7 +35,7 @@ And start the project
 yarn start
 ```
 
-## Authors
+## Author
 
 - **Zhongxia Li**
 
