@@ -28,14 +28,14 @@ class App extends Component {
           </div>
           {this.props.loading === true ? null : this.props.authedUser === '' ? (
             <div>
-              <Route component={Login} />
+              <Login />
             </div>
           ) : (
             <div>
               <Route path="/" exact component={QuestionList} />
               <Route path="/login" component={Login} />
               <Route path="/error" component={Error} />
-              <Route path="/questios/:id" component={QuestionCard} />
+              <Route path="/questions/:id" component={QuestionCard} />
               <Route path="/add" component={NewQuestion} />
               <Route path="/leaderboard" component={LeaderBoard} />
             </div>
